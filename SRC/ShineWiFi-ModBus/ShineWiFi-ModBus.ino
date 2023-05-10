@@ -574,12 +574,12 @@ void loop()
 
     // InverterReconnect() takes a long time --> wifi will crash
     // Do it only every two minutes
-    if ((now - WifiRetryTimer) > WIFI_RETRY_TIMER)
-    {
-        if (Inverter.GetWiFiStickType() == Undef_stick)
-            InverterReconnect();
-        WifiRetryTimer = now;
-    }
+    //if ((now - WifiRetryTimer) > WIFI_RETRY_TIMER)
+    //{
+    //    if (Inverter.GetWiFiStickType() == Undef_stick)
+   //         InverterReconnect();
+        //WifiRetryTimer = now;
+    //}
 
     // Read Inverter every REFRESH_TIMER ms [defined in config.h]
     // ------------------------------------------------------------

@@ -59,19 +59,7 @@ void Growatt::begin(Stream& serial) {
   // init communication with the inverter
   Serial.begin(9600);
   Modbus.begin(1, serial);
-  res = Modbus.readInputRegisters(0, 1);
-  if (res == Modbus.ku8MBSuccess) {
-    _eDevice = ShineWiFi_S;  // Serial
-  } else {
-    delay(1000);
-    Serial.begin(115200);
-    Modbus.begin(1, serial);
-    res = Modbus.readInputRegisters(0, 1);
-    if (res == Modbus.ku8MBSuccess) {
-      _eDevice = ShineWiFi_X;  // USB
-    }
-    delay(1000);
-  }
+  _eDevice = ShineWiFi_S;  // Serial
 #endif
 }
 
