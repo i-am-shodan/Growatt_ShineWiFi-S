@@ -87,7 +87,7 @@ For IoT applications the raw data can now read in JSON format (application/json)
 ## Homeassistant configuration
 
 Add the following to your home assistant configuration
-     
+```   
 mqtt:
   sensor:
     - state_topic: "energy/solar"
@@ -181,9 +181,10 @@ mqtt:
         {% elif v == 12 %} PV Charge and Discharge
         {% else %} Unknown
         {% endif %}
-
+```
 To extract the current AC Power you have to add a sensor template.
 
+```
 template:
   - sensor:
       - name: "Growatt inverter AC Power"
@@ -198,6 +199,7 @@ template:
         {{ (((states("sensor.growatt_panelswatts1") | float) + (states("sensor.growatt_panelswatts2") | float)) / 1000) | round(1) }}
       unit_of_measurement: 'kW'
       device_class: 'energy'
+```
 
 ## Home assistant energy dashboard
 Remember the HASS energy dashboard should only be connected to meters - the selection tool will often allow you to pick devices that look like they work but create garbage graphs.
