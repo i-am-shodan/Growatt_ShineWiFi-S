@@ -1,4 +1,11 @@
 #pragma once
+#include "Arduino.h"
+#include <ArduinoJson.h>
+
+#define JSON_DOCUMENT_SIZE 2048
+#define BUFFER_SIZE 256
+
+typedef StaticJsonDocument<JSON_DOCUMENT_SIZE> ShineJsonDocument;
 
 typedef enum {
   Undef_stick = 0,
@@ -34,7 +41,7 @@ typedef enum {
   VOLTAGE,
   CURRENT,
   SECONDS,
-  PRECENTAGE,
+  PERCENTAGE,
   FREQUENCY,
   TEMPERATURE,
   VA,
@@ -51,7 +58,7 @@ typedef struct {
   uint16_t address;
   uint32_t value;
   RegisterSize_t size;
-  char name[64];
+  const __FlashStringHelper* name;
   float multiplier;
   float resolution;
   RegisterUnit_t unit;

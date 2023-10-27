@@ -3,7 +3,7 @@
 
 * Registers of the inverter can be read or written with an web interface (`http://<ip>/postCommunicationModbus`)
 
-* The total energy is only stored in increments of 0.1 kWh in the inverter. For a smal inverter, this is a large step, especially during winter. 
+* The total energy is only stored in increments of 0.1 kWh in the inverter. For a small inverter, this is a large step, especially during winter.
 If the total energy is 0.199 kWh before sunset, the totoal enrgy will be reset to 0.1 kWh next morning. For this reason the "AccumulatedEnergy" field has been implemented. It returns the energy in Wh. It will be zero after every powercycle, but can be set to the value of the previous day over a http request (`http://<ip>/setAccumulatedEnergy`)
 
 * MQTT can be turned off
@@ -47,7 +47,7 @@ If the total energy is 0.199 kWh before sunset, the totoal enrgy will be reset t
 	* displayed on the UI `http://<ip>`
 	* added to the graph in the UI
 * MQTT_MAX_PACKET_SIZE doesn't need to be updated manually in the library. Instead the `PubSubClient::setBufferSize`has been used to do this dynamically.
-* New `http://<ip>/uistatus` has been created to provide data for the UI
+* New `http://<ip>/uiStatus` has been created to provide data for the UI
 * UI changes:
 	* Ui is generated dynamically based on the JSON provided.
 	* Graph is now able to plot multiple values
